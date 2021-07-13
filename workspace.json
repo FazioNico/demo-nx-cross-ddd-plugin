@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "projects": {
     "demo": {
       "projectType": "application",
@@ -424,7 +424,7 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/workspace"
   },
   "schematics": {
     "@nrwl/angular": {
