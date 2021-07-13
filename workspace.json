@@ -6,25 +6,18 @@
       "root": "apps/demo",
       "sourceRoot": "apps/demo/src",
       "prefix": "demo-nx-cross-ddd-plugin",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "executor": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/demo",
             "index": "apps/demo/src/index.html",
             "main": "apps/demo/src/main.ts",
             "polyfills": "apps/demo/src/polyfills.ts",
             "tsConfig": "apps/demo/tsconfig.app.json",
-            "assets": [
-              "apps/demo/src/favicon.ico",
-              "apps/demo/src/assets"
-            ],
-            "styles": [
-              "apps/demo/src/styles.css"
-            ],
+            "assets": ["apps/demo/src/favicon.ico", "apps/demo/src/assets"],
+            "styles": ["apps/demo/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -61,7 +54,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "executor": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "demo:build:production"
@@ -73,13 +66,13 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "executor": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "demo:build"
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
               "apps/demo/src/**/*.ts",
@@ -88,10 +81,8 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/demo"
-          ],
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/demo"],
           "options": {
             "jestConfig": "apps/demo/jest.config.js",
             "passWithNoTests": true
@@ -103,9 +94,9 @@
       "root": "apps/demo-e2e",
       "sourceRoot": "apps/demo-e2e/src",
       "projectType": "application",
-      "architect": {
+      "targets": {
         "e2e": {
-          "builder": "@nrwl/cypress:cypress",
+          "executor": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/demo-e2e/cypress.json",
             "tsConfig": "apps/demo-e2e/tsconfig.e2e.json",
@@ -118,11 +109,85 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/demo-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/demo-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "demo-react": {
+      "root": "apps/demo-react",
+      "sourceRoot": "apps/demo-react/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/demo-react",
+            "index": "apps/demo-react/src/index.html",
+            "main": "apps/demo-react/src/main.tsx",
+            "polyfills": "apps/demo-react/src/polyfills.ts",
+            "tsConfig": "apps/demo-react/tsconfig.app.json",
+            "assets": [
+              "apps/demo-react/src/favicon.ico",
+              "apps/demo-react/src/assets"
+            ],
+            "styles": ["apps/demo-react/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/demo-react/src/environments/environment.ts",
+                  "with": "apps/demo-react/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "demo-react:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "demo-react:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/demo-react/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/demo-react"],
+          "options": {
+            "jestConfig": "apps/demo-react/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
@@ -131,35 +196,27 @@
       "root": "libs/meteo/domain",
       "sourceRoot": "libs/meteo/domain/src",
       "projectType": "library",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/meteo/domain",
             "tsConfig": "libs/meteo/domain/tsconfig.lib.json",
             "packageJson": "libs/meteo/domain/package.json",
             "main": "libs/meteo/domain/src/index.ts",
-            "assets": [
-              "libs/meteo/domain/*.md"
-            ]
+            "assets": ["libs/meteo/domain/*.md"]
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/meteo/domain/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/meteo/domain/**/*.ts"]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/meteo/domain"
-          ],
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/meteo/domain"],
           "options": {
             "jestConfig": "libs/meteo/domain/jest.config.js",
             "passWithNoTests": true
@@ -171,37 +228,71 @@
       "root": "libs/meteo/feature-current-weather",
       "sourceRoot": "libs/meteo/feature-current-weather/src",
       "projectType": "library",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/meteo/feature-current-weather",
             "tsConfig": "libs/meteo/feature-current-weather/tsconfig.lib.json",
             "packageJson": "libs/meteo/feature-current-weather/package.json",
             "main": "libs/meteo/feature-current-weather/src/index.ts",
+            "assets": ["libs/meteo/feature-current-weather/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/meteo/feature-current-weather/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/meteo/feature-current-weather"],
+          "options": {
+            "jestConfig": "libs/meteo/feature-current-weather/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "platform-react-todo-feature-list": {
+      "root": "libs/platform/react/todo/feature-list",
+      "sourceRoot": "libs/platform/react/todo/feature-list/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/platform/react/todo/feature-list",
+            "tsConfig": "libs/platform/react/todo/feature-list/tsconfig.lib.json",
+            "project": "libs/platform/react/todo/feature-list/package.json",
+            "entryFile": "libs/platform/react/todo/feature-list/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
-              "libs/meteo/feature-current-weather/*.md"
+              {
+                "glob": "libs/platform/react/todo/feature-list/README.md",
+                "input": ".",
+                "output": "."
+              }
             ]
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/meteo/feature-current-weather/**/*.ts"
+              "libs/platform/react/todo/feature-list/**/*.{ts,tsx,js,jsx}"
             ]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/meteo/feature-current-weather"
-          ],
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/platform/react/todo/feature-list"],
           "options": {
-            "jestConfig": "libs/meteo/feature-current-weather/jest.config.js",
+            "jestConfig": "libs/platform/react/todo/feature-list/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -212,12 +303,10 @@
       "root": "libs/platform/web/meteo/feature-current-weather",
       "sourceRoot": "libs/platform/web/meteo/feature-current-weather/src",
       "prefix": "demo-nx-cross-ddd-plugin",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/platform/web/meteo/feature-current-weather"
-          ],
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/platform/web/meteo/feature-current-weather"],
           "options": {
             "project": "libs/platform/web/meteo/feature-current-weather/ng-package.json"
           },
@@ -232,7 +321,7 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "executor": "@nrwl/jest:jest",
           "outputs": [
             "coverage/libs/platform/web/meteo/feature-current-weather"
           ],
@@ -242,7 +331,7 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
               "libs/platform/web/meteo/feature-current-weather/src/**/*.ts",
@@ -257,12 +346,10 @@
       "root": "libs/platform/web/shared/feature-tokens",
       "sourceRoot": "libs/platform/web/shared/feature-tokens/src",
       "prefix": "demo-nx-cross-ddd-plugin",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/platform/web/shared/feature-tokens"
-          ],
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/platform/web/shared/feature-tokens"],
           "options": {
             "project": "libs/platform/web/shared/feature-tokens/ng-package.json"
           },
@@ -277,17 +364,15 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/platform/web/shared/feature-tokens"
-          ],
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/platform/web/shared/feature-tokens"],
           "options": {
             "jestConfig": "libs/platform/web/shared/feature-tokens/jest.config.js",
             "passWithNoTests": true
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
               "libs/platform/web/shared/feature-tokens/src/**/*.ts",
@@ -302,12 +387,10 @@
       "root": "libs/platform/web/todo/feature-list",
       "sourceRoot": "libs/platform/web/todo/feature-list/src",
       "prefix": "demo-nx-cross-ddd-plugin",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@nrwl/angular:package",
-          "outputs": [
-            "dist/libs/platform/web/todo/feature-list"
-          ],
+          "executor": "@nrwl/angular:package",
+          "outputs": ["dist/libs/platform/web/todo/feature-list"],
           "options": {
             "project": "libs/platform/web/todo/feature-list/ng-package.json"
           },
@@ -322,17 +405,15 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/platform/web/todo/feature-list"
-          ],
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/platform/web/todo/feature-list"],
           "options": {
             "jestConfig": "libs/platform/web/todo/feature-list/jest.config.js",
             "passWithNoTests": true
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
               "libs/platform/web/todo/feature-list/src/**/*.ts",
@@ -346,35 +427,27 @@
       "root": "libs/todo/domain",
       "sourceRoot": "libs/todo/domain/src",
       "projectType": "library",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/todo/domain",
             "tsConfig": "libs/todo/domain/tsconfig.lib.json",
             "packageJson": "libs/todo/domain/package.json",
             "main": "libs/todo/domain/src/index.ts",
-            "assets": [
-              "libs/todo/domain/*.md"
-            ]
+            "assets": ["libs/todo/domain/*.md"]
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/todo/domain/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/todo/domain/**/*.ts"]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/todo/domain"
-          ],
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/todo/domain"],
           "options": {
             "jestConfig": "libs/todo/domain/jest.config.js",
             "passWithNoTests": true
@@ -386,35 +459,27 @@
       "root": "libs/todo/feature-list",
       "sourceRoot": "libs/todo/feature-list/src",
       "projectType": "library",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@nrwl/node:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/todo/feature-list",
             "tsConfig": "libs/todo/feature-list/tsconfig.lib.json",
             "packageJson": "libs/todo/feature-list/package.json",
             "main": "libs/todo/feature-list/src/index.ts",
-            "assets": [
-              "libs/todo/feature-list/*.md"
-            ]
+            "assets": ["libs/todo/feature-list/*.md"]
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/todo/feature-list/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/todo/feature-list/**/*.ts"]
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/todo/feature-list"
-          ],
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/todo/feature-list"],
           "options": {
             "jestConfig": "libs/todo/feature-list/jest.config.js",
             "passWithNoTests": true
@@ -424,9 +489,9 @@
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/react"
   },
-  "schematics": {
+  "generators": {
     "@nrwl/angular": {
       "application": {
         "linter": "eslint"
@@ -451,6 +516,20 @@
     },
     "@nrwl/angular:component": {
       "style": "css"
+    },
+    "@nrwl/react": {
+      "application": {
+        "style": "css",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "css"
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
     }
   },
   "defaultProject": "demo"

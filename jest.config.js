@@ -8,5 +8,7 @@ module.exports = {
     '<rootDir>/libs/meteo/domain',
     '<rootDir>/libs/meteo/feature-current-weather',
     '<rootDir>/libs/platform/web/meteo/feature-current-weather',
+    '<rootDir>/libs/platform/react/todo/feature-list',
+    '<rootDir>/apps/demo-react',
   ],
 };

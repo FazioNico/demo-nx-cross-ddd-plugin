@@ -34,11 +34,17 @@
       "tags": [],
       "implicitDependencies": ["demo"]
     },
+    "demo-react": {
+      "tags": []
+    },
     "meteo-domain": {
       "tags": ["domain:meteo", "type:domain-logic"]
     },
     "meteo-feature-current-weather": {
       "tags": ["feature:current-weather", "type:feature-logic"]
+    },
+    "platform-react-todo-feature-list": {
+      "tags": ["platform:react:list", "type:platform-ui"]
     },
     "platform-web-meteo-feature-current-weather": {
       "tags": ["platform:web:current-weather", "type:platform-ui"]

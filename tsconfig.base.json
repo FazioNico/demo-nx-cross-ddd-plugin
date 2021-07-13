@@ -30,6 +30,9 @@
       "@demo-nx-cross-ddd-plugin/platform/web/todo/feature-list": [
         "libs/platform/web/todo/feature-list/src/index.ts"
       ],
+      "@demo-nx-cross-ddd-plugin/platform-react-todo-feature-list": [
+        "libs/platform/react/todo/feature-list/src/index.ts"
+      ],
       "@demo-nx-cross-ddd-plugin/todo-domain": [
         "libs/todo/domain/src/index.ts"
       ],
