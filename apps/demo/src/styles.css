@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+html,body, demo-nx-cross-ddd-plugin-root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #143157;
+}
+demo-nx-cross-ddd-plugin-todo-web-list-ui {
+  display: block;
+  padding: 1rem;
+  color: #fff;
+}
+demo-nx-cross-ddd-plugin-meteo-web-current-weather-ui {
+  color: #fff;
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+demo-nx-cross-ddd-plugin-meteo-web-current-weather-ui p {
+  margin: 0;
+}

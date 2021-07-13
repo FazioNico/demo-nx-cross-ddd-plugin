@@ -1,0 +1,42 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@demo-nx-cross-ddd-plugin/meteo-domain": [
+        "libs/meteo/domain/src/index.ts"
+      ],
+      "@demo-nx-cross-ddd-plugin/meteo-feature-current-weather": [
+        "libs/meteo/feature-current-weather/src/index.ts"
+      ],
+      "@demo-nx-cross-ddd-plugin/platform-web-shared-feature-tokens": [
+        "libs/platform/web/shared/feature-tokens/src/index.ts"
+      ],
+      "@demo-nx-cross-ddd-plugin/platform/web/meteo/feature-current-weather": [
+        "libs/platform/web/meteo/feature-current-weather/src/index.ts"
+      ],
+      "@demo-nx-cross-ddd-plugin/platform/web/todo/feature-list": [
+        "libs/platform/web/todo/feature-list/src/index.ts"
+      ],
+      "@demo-nx-cross-ddd-plugin/todo-domain": [
+        "libs/todo/domain/src/index.ts"
+      ],
+      "@demo-nx-cross-ddd-plugin/todo-feature-list": [
+        "libs/todo/feature-list/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,457 @@
+{
+  "version": 1,
+  "projects": {
+    "demo": {
+      "projectType": "application",
+      "root": "apps/demo",
+      "sourceRoot": "apps/demo/src",
+      "prefix": "demo-nx-cross-ddd-plugin",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/demo",
+            "index": "apps/demo/src/index.html",
+            "main": "apps/demo/src/main.ts",
+            "polyfills": "apps/demo/src/polyfills.ts",
+            "tsConfig": "apps/demo/tsconfig.app.json",
+            "assets": [
+              "apps/demo/src/favicon.ico",
+              "apps/demo/src/assets"
+            ],
+            "styles": [
+              "apps/demo/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/demo/src/environments/environment.ts",
+                  "with": "apps/demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "demo:build:production"
+            },
+            "development": {
+              "browserTarget": "demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "demo:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/demo/src/**/*.ts",
+              "apps/demo/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/demo"
+          ],
+          "options": {
+            "jestConfig": "apps/demo/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "demo-e2e": {
+      "root": "apps/demo-e2e",
+      "sourceRoot": "apps/demo-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/demo-e2e/cypress.json",
+            "tsConfig": "apps/demo-e2e/tsconfig.e2e.json",
+            "devServerTarget": "demo:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "demo:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/demo-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "meteo-domain": {
+      "root": "libs/meteo/domain",
+      "sourceRoot": "libs/meteo/domain/src",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/meteo/domain",
+            "tsConfig": "libs/meteo/domain/tsconfig.lib.json",
+            "packageJson": "libs/meteo/domain/package.json",
+            "main": "libs/meteo/domain/src/index.ts",
+            "assets": [
+              "libs/meteo/domain/*.md"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/meteo/domain/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/meteo/domain"
+          ],
+          "options": {
+            "jestConfig": "libs/meteo/domain/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "meteo-feature-current-weather": {
+      "root": "libs/meteo/feature-current-weather",
+      "sourceRoot": "libs/meteo/feature-current-weather/src",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/meteo/feature-current-weather",
+            "tsConfig": "libs/meteo/feature-current-weather/tsconfig.lib.json",
+            "packageJson": "libs/meteo/feature-current-weather/package.json",
+            "main": "libs/meteo/feature-current-weather/src/index.ts",
+            "assets": [
+              "libs/meteo/feature-current-weather/*.md"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/meteo/feature-current-weather/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/meteo/feature-current-weather"
+          ],
+          "options": {
+            "jestConfig": "libs/meteo/feature-current-weather/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "platform-web-meteo-feature-current-weather": {
+      "projectType": "library",
+      "root": "libs/platform/web/meteo/feature-current-weather",
+      "sourceRoot": "libs/platform/web/meteo/feature-current-weather/src",
+      "prefix": "demo-nx-cross-ddd-plugin",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": [
+            "dist/libs/platform/web/meteo/feature-current-weather"
+          ],
+          "options": {
+            "project": "libs/platform/web/meteo/feature-current-weather/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/platform/web/meteo/feature-current-weather/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/platform/web/meteo/feature-current-weather/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/platform/web/meteo/feature-current-weather"
+          ],
+          "options": {
+            "jestConfig": "libs/platform/web/meteo/feature-current-weather/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/platform/web/meteo/feature-current-weather/src/**/*.ts",
+              "libs/platform/web/meteo/feature-current-weather/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "platform-web-shared-feature-tokens": {
+      "projectType": "library",
+      "root": "libs/platform/web/shared/feature-tokens",
+      "sourceRoot": "libs/platform/web/shared/feature-tokens/src",
+      "prefix": "demo-nx-cross-ddd-plugin",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": [
+            "dist/libs/platform/web/shared/feature-tokens"
+          ],
+          "options": {
+            "project": "libs/platform/web/shared/feature-tokens/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/platform/web/shared/feature-tokens/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/platform/web/shared/feature-tokens/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/platform/web/shared/feature-tokens"
+          ],
+          "options": {
+            "jestConfig": "libs/platform/web/shared/feature-tokens/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/platform/web/shared/feature-tokens/src/**/*.ts",
+              "libs/platform/web/shared/feature-tokens/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "platform-web-todo-feature-list": {
+      "projectType": "library",
+      "root": "libs/platform/web/todo/feature-list",
+      "sourceRoot": "libs/platform/web/todo/feature-list/src",
+      "prefix": "demo-nx-cross-ddd-plugin",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": [
+            "dist/libs/platform/web/todo/feature-list"
+          ],
+          "options": {
+            "project": "libs/platform/web/todo/feature-list/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/platform/web/todo/feature-list/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/platform/web/todo/feature-list/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/platform/web/todo/feature-list"
+          ],
+          "options": {
+            "jestConfig": "libs/platform/web/todo/feature-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/platform/web/todo/feature-list/src/**/*.ts",
+              "libs/platform/web/todo/feature-list/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "todo-domain": {
+      "root": "libs/todo/domain",
+      "sourceRoot": "libs/todo/domain/src",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/todo/domain",
+            "tsConfig": "libs/todo/domain/tsconfig.lib.json",
+            "packageJson": "libs/todo/domain/package.json",
+            "main": "libs/todo/domain/src/index.ts",
+            "assets": [
+              "libs/todo/domain/*.md"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/todo/domain/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/todo/domain"
+          ],
+          "options": {
+            "jestConfig": "libs/todo/domain/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "todo-feature-list": {
+      "root": "libs/todo/feature-list",
+      "sourceRoot": "libs/todo/feature-list/src",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/todo/feature-list",
+            "tsConfig": "libs/todo/feature-list/tsconfig.lib.json",
+            "packageJson": "libs/todo/feature-list/package.json",
+            "main": "libs/todo/feature-list/src/index.ts",
+            "assets": [
+              "libs/todo/feature-list/*.md"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/todo/feature-list/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/todo/feature-list"
+          ],
+          "options": {
+            "jestConfig": "libs/todo/feature-list/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "css"
+    }
+  },
+  "defaultProject": "demo"
+}

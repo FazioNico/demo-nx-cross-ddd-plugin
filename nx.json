@@ -1,0 +1,59 @@
+{
+  "npmScope": "demo-nx-cross-ddd-plugin",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
+  },
+  "projects": {
+    "demo": {
+      "tags": []
+    },
+    "demo-e2e": {
+      "tags": [],
+      "implicitDependencies": ["demo"]
+    },
+    "meteo-domain": {
+      "tags": ["domain:meteo", "type:domain-logic"]
+    },
+    "meteo-feature-current-weather": {
+      "tags": ["feature:current-weather", "type:feature-logic"]
+    },
+    "platform-web-meteo-feature-current-weather": {
+      "tags": ["platform:web:current-weather", "type:platform-ui"]
+    },
+    "platform-web-shared-feature-tokens": {
+      "tags": ["platform:web:tokens", "type:platform-ui"]
+    },
+    "platform-web-todo-feature-list": {
+      "tags": ["platform:web:list", "type:platform-ui"]
+    },
+    "todo-domain": {
+      "tags": ["domain:todo", "type:domain-logic"]
+    },
+    "todo-feature-list": {
+      "tags": ["feature:list", "type:feature-logic"]
+    }
+  }
+}
