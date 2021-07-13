@@ -1,5 +1,6 @@
 import { PlatformReactTodoFeatureList } from '@demo-nx-cross-ddd-plugin/platform-react-todo-feature-list';
 import { Route, Link } from 'react-router-dom';
+import { environment } from '../environments/environment';
 import styles from './app.module.css';
 
 export function App() {
@@ -27,10 +28,9 @@ export function App() {
         path="/Todos"
         exact
         render={() => (
-          <PlatformReactTodoFeatureList></PlatformReactTodoFeatureList>
+          <PlatformReactTodoFeatureList apiUrl={environment.TODO_API_URL}></PlatformReactTodoFeatureList>
         )}
       />
-      {/* END: routes */}
     </div>
   );
 }
