@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { TodoFeatureList } from '@demo-nx-cross-ddd-plugin/todo-feature-list'
 import './platform-react-todo-feature-list.module.css';
 import { todoService } from './services/todo.service';
+import styles from './platform-react-todo-feature-list.module.css';
 
 /* eslint-disable-next-line */
 export interface PlatformReactTodoFeatureListProps {
@@ -37,10 +38,13 @@ export function PlatformReactTodoFeatureList(
   
   // return the component DOM
   return (
-    <div>
+    <div className={styles.todosList}>
       <ul>
         {todoList?.map((todo, index) => (
-          <li key={index}>{todo.title}</li>
+          <li key={index} className={styles.todoItem}>
+            <input type="checkbox"/> 
+            {todo.title}
+          </li>
         ))}
       </ul>
     </div>
