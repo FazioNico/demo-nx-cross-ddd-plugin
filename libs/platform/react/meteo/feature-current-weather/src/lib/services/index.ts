@@ -7,7 +7,7 @@ import { WeatherService } from "./weather.service";
 
 
 export const meteoService = (apiUrl: string, apiKey: string) => {
-  const weatherService = new WeatherService(currentWeatherFactory('', ''));
+  const weatherService = new WeatherService(currentWeatherFactory(apiUrl, apiKey));
   const geoService = new GeolocationService(geolocationFactory());
   return new DataService(weatherService, geoService);
 }
