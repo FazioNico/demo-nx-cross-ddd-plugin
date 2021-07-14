@@ -27,13 +27,13 @@ npm start
 
 ### Features Domain
 - `./libs/todo/feature-list` Todo Feature logic Library to list Todo from API
-- `./libs/meteo/feature-current-weather` Meteo Feature logic Library to get current weather form specific position (using native geolocalisation)
+- `./libs/meteo/feature-current-weather` Meteo Feature logic Library to get current weather from position
 
 ### Platforms Feature
 **Angular**
 - `./libs/platform/angular/todo/feature-list` Platform UI for Todo Feature Library
 - `./libs/platform/angular/meteo/feature-current-weather` Platform UI for Meteo Feature Library
-- `./libs/platform/angular/shared/feature-tokens` Shared Platform Library for advenced dependecy injection (IoD)
+- `./libs/platform/angular/shared/feature-tokens` Shared Platform Library for dependecy injection (IoD)
 
 **React**
 - `./libs/platform/react/todo/feature-list` Platform UI for Todo Feature Library
