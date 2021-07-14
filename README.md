@@ -30,8 +30,11 @@ npm start
 - `./libs/meteo/feature-current-weather` Meteo Feature logic Library to get current weather form specific position (using native geolocalisation)
 
 ### Platforms Feature
-- `./libs/platform/angular/todo/feature-list` Angular Platform UI for Todo Feature Library
-- `./libs/platform/angular/meteo/feature-current-weather` Angular Platform UI for Meteo Feature Library
-- `./libs/platform/angular/shared/feature-tokens` Angular Shared Platform Library for advenced dependecy injection (IoD)
-- `./libs/platform/react/todo/feature-list` React Platform UI for Todo Feature Library
-- `./libs/platform/react/meteo/feature-current-weather` React Platform UI for Meteo Feature Library
+**Angular**
+- `./libs/platform/angular/todo/feature-list` Platform UI for Todo Feature Library
+- `./libs/platform/angular/meteo/feature-current-weather` Platform UI for Meteo Feature Library
+- `./libs/platform/angular/shared/feature-tokens` Shared Platform Library for advenced dependecy injection (IoD)
+
+**React**
+- `./libs/platform/react/todo/feature-list` Platform UI for Todo Feature Library
+- `./libs/platform/react/meteo/feature-current-weather` Platform UI for Meteo Feature Library
