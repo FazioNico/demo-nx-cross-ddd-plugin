@@ -10,5 +10,6 @@ module.exports = {
     '<rootDir>/libs/platform/angular/meteo/feature-current-weather',
     '<rootDir>/libs/platform/react/todo/feature-list',
     '<rootDir>/apps/demo-react',
+    '<rootDir>/libs/platform/react/meteo/feature-current-weather',
   ],
 };

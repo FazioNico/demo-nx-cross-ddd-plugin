@@ -24,14 +24,17 @@
       "@demo-nx-cross-ddd-plugin/platform-angular-shared-feature-tokens": [
         "libs/platform/angular/shared/feature-tokens/src/index.ts"
       ],
+      "@demo-nx-cross-ddd-plugin/platform-react-todo-feature-list": [
+        "libs/platform/react/todo/feature-list/src/index.ts"
+      ],
+      "@demo-nx-cross-ddd-plugin/platform-react-meteo-feature-current-weather": [
+        "libs/platform/react/meteo/feature-current-weather/src/index.ts"
+      ],
       "@demo-nx-cross-ddd-plugin/platform/angular/meteo/feature-current-weather": [
         "libs/platform/angular/meteo/feature-current-weather/src/index.ts"
       ],
       "@demo-nx-cross-ddd-plugin/platform/angular/todo/feature-list": [
         "libs/platform/angular/todo/feature-list/src/index.ts"
-      ],
-      "@demo-nx-cross-ddd-plugin/platform-react-todo-feature-list": [
-        "libs/platform/react/todo/feature-list/src/index.ts"
       ],
       "@demo-nx-cross-ddd-plugin/todo-domain": [
         "libs/todo/domain/src/index.ts"

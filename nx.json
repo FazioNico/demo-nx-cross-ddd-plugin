@@ -43,9 +43,6 @@
     "meteo-feature-current-weather": {
       "tags": ["feature:current-weather", "type:feature-logic"]
     },
-    "platform-react-todo-feature-list": {
-      "tags": ["platform:react:list", "type:platform-ui"]
-    },
     "platform-angular-meteo-feature-current-weather": {
       "tags": ["platform:angular:current-weather", "type:platform-ui"]
     },
@@ -54,6 +51,12 @@
     },
     "platform-angular-todo-feature-list": {
       "tags": ["platform:angular:list", "type:platform-ui"]
+    },
+    "platform-react-meteo-feature-current-weather": {
+      "tags": ["platform:react:current-weather", "type:platform-ui"]
+    },
+    "platform-react-todo-feature-list": {
+      "tags": ["platform:react:list", "type:platform-ui"]
     },
     "todo-domain": {
       "tags": ["domain:todo", "type:domain-logic"]
