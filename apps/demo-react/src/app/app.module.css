@@ -10,3 +10,16 @@
   color: #fff;
 }
 
+.app .platform-react-meteo-feature-current-weather {
+  color: #fff;
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+.app .platform-react-meteo-feature-current-weather p {
+  margin: 0;
+}
