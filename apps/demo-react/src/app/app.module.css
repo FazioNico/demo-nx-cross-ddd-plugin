@@ -2,5 +2,11 @@
   font-family: sans-serif;
   min-width: 100%;
   margin: 0px auto;
+  padding: 1rem;
+  background-color: #143157;
+  color: #fff;
+}
+.app a {
+  color: #fff;
 }
 
