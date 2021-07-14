@@ -14,20 +14,29 @@ export interface PlatformReactMeteoFeatureCurrentWeatherProps {
 export function PlatformReactMeteoFeatureCurrentWeather(
   props: PlatformReactMeteoFeatureCurrentWeatherProps
 ) {
+
   const [currentWeather, setCurrentWeather] = useState<Meteo>();
-  const service = meteoService(props.apiUrl, props.apiKey);
+  
   useEffect(() => {
+    const service = meteoService(props.apiUrl, props.apiKey);
     const weatherService = new MeteoFeatureCurrentWeather(service);
     weatherService
       .init()
       .then(()=> {
         setCurrentWeather(weatherService.currentWeather);
       })
-  }, [service]);
+  });
 
   // return the component DOM
+  if (!currentWeather) {
+    return (
+      <div>
+        loading...
+      </div>
+    );
+  }
   return (
-    <div className={styles.meteo}>
+  <div className={styles.meteo + ' platform-react-meteo-feature-current-weather'}>
       <div id="mainWrapper">
         <p>{currentWeather?.temp}°C</p>
         <picture>
