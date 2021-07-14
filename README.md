@@ -23,7 +23,7 @@ npm start
 
 ### Domains
 - `./libs/todo/domain` Todo core logic Domain Library
-- `./libs/todo/meteo` Meteo core logic Domain Library
+- `./libs/meteo/domain` Meteo core logic Domain Library
 
 ### Features Domain
 - `./libs/todo/feature-list` Todo Feature logic Library to list Todo from API
