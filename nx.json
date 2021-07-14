@@ -46,14 +46,14 @@
     "platform-react-todo-feature-list": {
       "tags": ["platform:react:list", "type:platform-ui"]
     },
-    "platform-web-meteo-feature-current-weather": {
-      "tags": ["platform:web:current-weather", "type:platform-ui"]
+    "platform-angular-meteo-feature-current-weather": {
+      "tags": ["platform:angular:current-weather", "type:platform-ui"]
     },
-    "platform-web-shared-feature-tokens": {
-      "tags": ["platform:web:tokens", "type:platform-ui"]
+    "platform-angular-shared-feature-tokens": {
+      "tags": ["platform:angular:tokens", "type:platform-ui"]
     },
-    "platform-web-todo-feature-list": {
-      "tags": ["platform:web:list", "type:platform-ui"]
+    "platform-angular-todo-feature-list": {
+      "tags": ["platform:angular:list", "type:platform-ui"]
     },
     "todo-domain": {
       "tags": ["domain:todo", "type:domain-logic"]

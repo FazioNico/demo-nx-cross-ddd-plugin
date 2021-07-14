@@ -1,9 +1,9 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { TODO_API_URL, WEATHER_API_URL, WEATHER_IMG_URL, WEATHER_API_KEY } from '@demo-nx-cross-ddd-plugin/platform-web-shared-feature-tokens';
-import { PlatformWebMeteoFeatureCurrentWeatherElementModule } from '@demo-nx-cross-ddd-plugin/platform/web/meteo/feature-current-weather';
-import { PlatformWebTodoFeatureListElementModule } from '@demo-nx-cross-ddd-plugin/platform/web/todo/feature-list';
+import { TODO_API_URL, WEATHER_API_URL, WEATHER_IMG_URL, WEATHER_API_KEY } from '@demo-nx-cross-ddd-plugin/platform-angular-shared-feature-tokens';
+import { PlatformAngularMeteoFeatureCurrentWeatherElementModule } from '@demo-nx-cross-ddd-plugin/platform/angular/meteo/feature-current-weather';
+import { PlatformAngularTodoFeatureListElementModule } from '@demo-nx-cross-ddd-plugin/platform/angular/todo/feature-list';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
@@ -17,18 +17,18 @@ import { WidgetsComponent } from './widgets.component';
   ],
   imports: [
     BrowserModule,
-    PlatformWebMeteoFeatureCurrentWeatherElementModule,
-    PlatformWebTodoFeatureListElementModule,
+    PlatformAngularMeteoFeatureCurrentWeatherElementModule,
+    PlatformAngularTodoFeatureListElementModule,
     RouterModule.forRoot([
       {
         path: 'todos',
-        loadChildren: () => import('@demo-nx-cross-ddd-plugin/platform/web/todo/feature-list')
-        .then(m => m.PlatformWebTodoFeatureListModule)
+        loadChildren: () => import('@demo-nx-cross-ddd-plugin/platform/angular/todo/feature-list')
+        .then(m => m.PlatformAngularTodoFeatureListModule)
       },
       {
         path: 'meteo',
-        loadChildren: () => import('@demo-nx-cross-ddd-plugin/platform/web/meteo/feature-current-weather')
-        .then(m => m.PlatformWebMeteoFeatureCurrentWeatherModule)
+        loadChildren: () => import('@demo-nx-cross-ddd-plugin/platform/angular/meteo/feature-current-weather')
+        .then(m => m.PlatformAngularMeteoFeatureCurrentWeatherModule)
       },
       {
         path: 'widgets',

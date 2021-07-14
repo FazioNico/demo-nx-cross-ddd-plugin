@@ -298,24 +298,24 @@
         }
       }
     },
-    "platform-web-meteo-feature-current-weather": {
+    "platform-angular-meteo-feature-current-weather": {
       "projectType": "library",
-      "root": "libs/platform/web/meteo/feature-current-weather",
-      "sourceRoot": "libs/platform/web/meteo/feature-current-weather/src",
+      "root": "libs/platform/angular/meteo/feature-current-weather",
+      "sourceRoot": "libs/platform/angular/meteo/feature-current-weather/src",
       "prefix": "demo-nx-cross-ddd-plugin",
       "targets": {
         "build": {
           "executor": "@nrwl/angular:package",
-          "outputs": ["dist/libs/platform/web/meteo/feature-current-weather"],
+          "outputs": ["dist/libs/platform/angular/meteo/feature-current-weather"],
           "options": {
-            "project": "libs/platform/web/meteo/feature-current-weather/ng-package.json"
+            "project": "libs/platform/angular/meteo/feature-current-weather/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/platform/web/meteo/feature-current-weather/tsconfig.lib.prod.json"
+              "tsConfig": "libs/platform/angular/meteo/feature-current-weather/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "libs/platform/web/meteo/feature-current-weather/tsconfig.lib.json"
+              "tsConfig": "libs/platform/angular/meteo/feature-current-weather/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -323,10 +323,10 @@
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/platform/web/meteo/feature-current-weather"
+            "coverage/libs/platform/angular/meteo/feature-current-weather"
           ],
           "options": {
-            "jestConfig": "libs/platform/web/meteo/feature-current-weather/jest.config.js",
+            "jestConfig": "libs/platform/angular/meteo/feature-current-weather/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -334,40 +334,40 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/platform/web/meteo/feature-current-weather/src/**/*.ts",
-              "libs/platform/web/meteo/feature-current-weather/src/**/*.html"
+              "libs/platform/angular/meteo/feature-current-weather/src/**/*.ts",
+              "libs/platform/angular/meteo/feature-current-weather/src/**/*.html"
             ]
           }
         }
       }
     },
-    "platform-web-shared-feature-tokens": {
+    "platform-angular-shared-feature-tokens": {
       "projectType": "library",
-      "root": "libs/platform/web/shared/feature-tokens",
-      "sourceRoot": "libs/platform/web/shared/feature-tokens/src",
+      "root": "libs/platform/angular/shared/feature-tokens",
+      "sourceRoot": "libs/platform/angular/shared/feature-tokens/src",
       "prefix": "demo-nx-cross-ddd-plugin",
       "targets": {
         "build": {
           "executor": "@nrwl/angular:package",
-          "outputs": ["dist/libs/platform/web/shared/feature-tokens"],
+          "outputs": ["dist/libs/platform/angular/shared/feature-tokens"],
           "options": {
-            "project": "libs/platform/web/shared/feature-tokens/ng-package.json"
+            "project": "libs/platform/angular/shared/feature-tokens/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/platform/web/shared/feature-tokens/tsconfig.lib.prod.json"
+              "tsConfig": "libs/platform/angular/shared/feature-tokens/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "libs/platform/web/shared/feature-tokens/tsconfig.lib.json"
+              "tsConfig": "libs/platform/angular/shared/feature-tokens/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/platform/web/shared/feature-tokens"],
+          "outputs": ["coverage/libs/platform/angular/shared/feature-tokens"],
           "options": {
-            "jestConfig": "libs/platform/web/shared/feature-tokens/jest.config.js",
+            "jestConfig": "libs/platform/angular/shared/feature-tokens/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -375,40 +375,40 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/platform/web/shared/feature-tokens/src/**/*.ts",
-              "libs/platform/web/shared/feature-tokens/src/**/*.html"
+              "libs/platform/angular/shared/feature-tokens/src/**/*.ts",
+              "libs/platform/angular/shared/feature-tokens/src/**/*.html"
             ]
           }
         }
       }
     },
-    "platform-web-todo-feature-list": {
+    "platform-angular-todo-feature-list": {
       "projectType": "library",
-      "root": "libs/platform/web/todo/feature-list",
-      "sourceRoot": "libs/platform/web/todo/feature-list/src",
+      "root": "libs/platform/angular/todo/feature-list",
+      "sourceRoot": "libs/platform/angular/todo/feature-list/src",
       "prefix": "demo-nx-cross-ddd-plugin",
       "targets": {
         "build": {
           "executor": "@nrwl/angular:package",
-          "outputs": ["dist/libs/platform/web/todo/feature-list"],
+          "outputs": ["dist/libs/platform/angular/todo/feature-list"],
           "options": {
-            "project": "libs/platform/web/todo/feature-list/ng-package.json"
+            "project": "libs/platform/angular/todo/feature-list/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/platform/web/todo/feature-list/tsconfig.lib.prod.json"
+              "tsConfig": "libs/platform/angular/todo/feature-list/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "libs/platform/web/todo/feature-list/tsconfig.lib.json"
+              "tsConfig": "libs/platform/angular/todo/feature-list/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/platform/web/todo/feature-list"],
+          "outputs": ["coverage/libs/platform/angular/todo/feature-list"],
           "options": {
-            "jestConfig": "libs/platform/web/todo/feature-list/jest.config.js",
+            "jestConfig": "libs/platform/angular/todo/feature-list/jest.config.js",
             "passWithNoTests": true
           }
         },
@@ -416,8 +416,8 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/platform/web/todo/feature-list/src/**/*.ts",
-              "libs/platform/web/todo/feature-list/src/**/*.html"
+              "libs/platform/angular/todo/feature-list/src/**/*.ts",
+              "libs/platform/angular/todo/feature-list/src/**/*.html"
             ]
           }
         }
