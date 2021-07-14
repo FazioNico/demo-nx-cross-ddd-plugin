@@ -3,7 +3,7 @@ import { TodoFeatureList } from '@demo-nx-cross-ddd-plugin/todo-feature-list';
 import { TodoService } from '../../services/todo/todo.service';
 
 @Component({
-  selector: 'demo-nx-cross-ddd-plugin-todo-web-list-ui',
+  selector: 'demo-nx-cross-ddd-plugin-angular-todo-list-ui',
   template: `
     <ul *ngIf="todos; else loading">
         <li *ngFor="let todo of todos">

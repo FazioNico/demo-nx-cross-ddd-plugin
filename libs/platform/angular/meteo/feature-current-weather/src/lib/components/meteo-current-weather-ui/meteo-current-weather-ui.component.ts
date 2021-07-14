@@ -4,7 +4,7 @@ import { WEATHER_IMG_URL } from '@demo-nx-cross-ddd-plugin/platform-angular-shar
 import { DataService } from '../../services/data/data.service';
 
 @Component({
-  selector: 'demo-nx-cross-ddd-plugin-meteo-angular-current-weather-ui',
+  selector: 'demo-nx-cross-ddd-plugin-angular-meteo-current-weather-ui',
   template: `
     <div *ngIf="currentWeather; else loading">
       <div id="mainWrapper">
